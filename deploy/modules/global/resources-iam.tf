@@ -20,10 +20,17 @@ resource "aws_iam_user_policy" "pipeline" {
     {
       "Effect": "Allow",
       "Action": [
-          "iam:ListRoles",
-          "sts:AssumeRole"
+          "iam:ListRoles"
       ],
       "Resource": "*"
+    },
+    
+    {
+      "Effect": "Allow",
+      "Action": [
+          "sts:AssumeRole"
+      ],
+      "Resource": "arn:aws:iam::*:role/mnpg*pipeline*"
     }
   ]
 }
